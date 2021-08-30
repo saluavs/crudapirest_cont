@@ -37,19 +37,23 @@ export default {
   },
   methods: {
     login() {
-      Firebase.auth().signInWithEmailAndPassword(this.formLabelAlign.user, this.formLabelAlign.password)
-      .then(
-        accept =>{
-          this.$router.push('home')
-        },
-        reject => {
-          this.$message({
-            showClose:true,
-            message:reject.message,
-            type:'error'
-          })
-        }
-      )
+      Firebase.auth()
+        .signInWithEmailAndPassword(
+          this.formLabelAlign.user,
+          this.formLabelAlign.password
+        )
+        .then(
+          accept => {
+            this.$router.push("home");
+          },
+          reject => {
+            this.$message({
+              showClose: true,
+              message: reject.message,
+              type: "error"
+            });
+          }
+        );
     }
   }
 };

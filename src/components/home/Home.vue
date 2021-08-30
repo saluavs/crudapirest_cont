@@ -24,25 +24,35 @@
           </el-submenu>
         </el-menu>
       </el-aside>
-      <el-main style="margin-left:30%">Contenido</el-main>
+      <el-main>
+        <AgregarPaciente></AgregarPaciente>
+        <Pacientes></Pacientes>
+      </el-main>
     </el-container>
   </el-container>
 </template>
 
 <script>
-import Firebase from 'firebase'
-import { getAuth, signOut} from "firebase/auth";
+import Firebase from "firebase";
+import AgregarPaciente from '@/components/AgregarPaciente';
+import Pacientes from '@/components/Pacientes';
+
 
 export default {
+  components: {
+    AgregarPaciente,
+    Pacientes
+  },
   data() {
     return {};
   },
   methods: {
     logout() {
-      Firebase.auth().signOut()
-      .then((accept) => {
-        this.$router.push("login");
-      })
+      Firebase.auth()
+        .signOut()
+        .then(accept => {
+          this.$router.push("login");
+        });
     }
   }
 };

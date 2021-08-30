@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/home/Home'
 import Login from '@/components/Login'
 import Firebase from 'firebase'
-import {  getAuth } from "firebase/auth";
+// import {  getAuth } from "firebase/auth";
 
 Vue.use(Router);
 
@@ -43,5 +43,7 @@ router.beforeEach((to, from, next)=> {
     next();
   }
 })
+
+
 
 export default router
